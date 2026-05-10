@@ -42,6 +42,7 @@ public partial class App : Application
             builder.Services.AddTransient<IConsumableItemService, ConsumableItemService>();
             builder.Services.AddTransient<MainWindowViewModel>();
             builder.Services.AddTransient<MainWindow>();
+            builder.Services.AddTransient<ILabTechnicianService, LabTechnicianService>();
 
             _host = builder.Build();
 
