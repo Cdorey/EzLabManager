@@ -39,10 +39,22 @@ public partial class App : Application
                 options.UseSqlite(DatabasePath.GetConnectionString());
             });
 
+            builder.Services.AddTransient<MainWindow>();
+
             builder.Services.AddTransient<IConsumableItemService, ConsumableItemService>();
             builder.Services.AddTransient<MainWindowViewModel>();
-            builder.Services.AddTransient<MainWindow>();
+
             builder.Services.AddTransient<ILabTechnicianService, LabTechnicianService>();
+            builder.Services.AddTransient<LabTechnicianViewModel>();
+
+            builder.Services.AddTransient<IConsumableInboundRecordService, ConsumableInboundRecordService>();
+            builder.Services.AddTransient<InboundRecordViewModel>();
+
+            builder.Services.AddTransient<IConsumableOutboundRecordService, ConsumableOutboundRecordService>();
+            builder.Services.AddTransient<OutboundRecordViewModel>();
+
+            builder.Services.AddTransient<IInventorySummaryService, InventorySummaryService>();
+            builder.Services.AddTransient<InventorySummaryViewModel>();
 
             _host = builder.Build();
 
